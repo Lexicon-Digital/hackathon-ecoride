@@ -18,7 +18,7 @@ export enum EScreens {
 }
 
 export const Navigation = () => {
-    const [initialRoute, setInitialRoute] = React.useState<string>(/*EScreens.SIGN_UP*/"JoinOrg")
+    const [initialRoute, setInitialRoute] = React.useState<string>(EScreens.SIGN_UP)
     const [orgToJoin, setOrgToJoin] = React.useState<string>("")
     const [isLoading, setIsLoading] = React.useState(true)
 
