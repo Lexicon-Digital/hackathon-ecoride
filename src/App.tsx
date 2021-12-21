@@ -8,18 +8,12 @@
  * @format
  */
 
-import React, { useEffect } from 'react'
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {StatusBar, StyleSheet, Text, useColorScheme, View} from 'react-native';
 
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { Navigation } from './components/Navigation/Navigation'
-import { storeData } from './utils/AsyncStorage'
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Navigation} from './components/Navigation/Navigation';
+import {storeData} from './utils/AsyncStorage';
 
 const Section: React.FC<{
   title: string;
@@ -33,7 +27,8 @@ const Section: React.FC<{
           {
             color: isDarkMode ? Colors.white : Colors.black,
           },
-        ]}>
+        ]}
+      >
         {title}
       </Text>
       <Text
@@ -42,7 +37,8 @@ const Section: React.FC<{
           {
             color: isDarkMode ? Colors.light : Colors.dark,
           },
-        ]}>
+        ]}
+      >
         {children}
       </Text>
     </View>
@@ -52,11 +48,10 @@ const Section: React.FC<{
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   useEffect(() => {
-      (async() => {
-await          storeData('joinOrganisation', "Lexicon Digital")
-
-      })()
-  }, [])
+    (async () => {
+      await storeData('joinOrganisation', 'Lexicon Digital');
+    })();
+  }, []);
 
   return (
     <>
