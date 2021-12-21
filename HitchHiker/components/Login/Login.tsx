@@ -39,7 +39,7 @@ export const Login: React.FC<ILogin> = ({navigation}) => {
             <Input
                 onChangeText={setUsername}
                 value={username}
-                placeholder="username"
+                placeholder="Username"
                 containerStyle={{
                     width: 300,
                 }}
@@ -48,7 +48,7 @@ export const Login: React.FC<ILogin> = ({navigation}) => {
             <Input
                 onChangeText={setPassword}
                 value={password}
-                placeholder="password"
+                placeholder="Password"
                 containerStyle={{
                     width: 300,
                 }}
@@ -56,7 +56,7 @@ export const Login: React.FC<ILogin> = ({navigation}) => {
             />
             <Pressable style={styles.button}>
                 <Button
-                    onPress={() => navigation.navigate(EScreens.MAP)}
+                    onPress={() => navigation.navigate(EScreens.CARPOOL_LIST)}
                     title="Login"
                     disabled={isButtonDisabled()}
                     buttonStyle={{
