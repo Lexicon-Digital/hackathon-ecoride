@@ -20,11 +20,13 @@ export enum EScreens {
 }
 
 export const Navigation = () => {
-    const [initialRoute, setInitialRoute] = React.useState<string>(EScreens.SIGN_UP)
+    const [initialRoute, setInitialRoute] = React.useState<string>(EScreens.JOIN)
     const [orgToJoin, setOrgToJoin] = React.useState<string>("")
     const [isLoading, setIsLoading] = React.useState(true)
 
     const JoinOrganisationWithName: React.VFC<{navigation: Navigation}> = (props) => <JoinOrganisation organisationName={orgToJoin} {...props} />;
+    // Using some hardcoded markers for demo purposes
+    const MapWithMarkers: React.VFC<{navigation: Navigation}> = (props) => <Map {...props} markers={[[-37.7712, 144.9998],[-37.7846,144.9894]]} />
 
     React.useEffect(() => {
         (async () => {
@@ -45,9 +47,9 @@ export const Navigation = () => {
                 <Stack.Navigator initialRouteName={initialRoute}>
                     <Stack.Screen name={EScreens.SIGN_UP} component={SignUp} options={{title: 'Sign Up'}} />
                     <Stack.Screen name={EScreens.LOGIN} component={Login} options={{title: 'Login'}} />
-                    <Stack.Screen name={EScreens.MAP} component={Map} options={{title: 'Map'}}  />
                     <Stack.Screen name={EScreens.CARPOOL_LIST} component={CarpoolList} options={{title: 'Carpool List'}}  />
-                    <Stack.Screen name={EScreens.JOIN} component={JoinOrganisationWithName}/>
+                    <Stack.Screen name={EScreens.MAP} component={MapWithMarkers} />
+                    <Stack.Screen name={EScreens.JOIN} component={JoinOrganisationWithName} options={{title: 'Join Organisation'}}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );
