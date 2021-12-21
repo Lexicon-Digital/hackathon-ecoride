@@ -2,7 +2,8 @@ import React from "react";
 import { Pressable, StyleSheet, Text } from 'react-native'
 import { Layout } from '../Layout'
 import { EScreens } from '../Navigation/Navigation'
-import { Button, Icon, Input } from 'react-native-elements'
+import { Button, Input } from 'react-native-elements'
+import {Navigation} from "../Navigation/Navigation";
 
 const styles = StyleSheet.create({
     button: {
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
 });
 
 interface ISignUp {
-    navigation?: any;
+    navigation: Navigation;
 }
 
 export const SignUp: React.FC<ISignUp> = ({navigation}) => {
