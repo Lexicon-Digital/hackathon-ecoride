@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Pressable, StyleSheet, Text, TextInput } from 'react-native'
+import { Button, Pressable, StyleSheet, TextInput } from 'react-native'
 import { Layout } from '../Layout'
 import { EScreens } from '../Navigation/Navigation'
 
@@ -9,25 +9,18 @@ const styles = StyleSheet.create({
         margin: 12,
         borderWidth: 1,
         padding: 10,
-        width: 300,
+        width: 250,
     },
     button: {
-        width: 300,
-    },
-    loginLink: {
-        textDecorationLine: "underline",
-    },
-    loginText: {
-        marginTop: 15,
-        textAlign: 'center',
+        width: 250,
     },
 });
 
-interface ISignUp {
+interface ILogin {
     navigation?: any;
 }
 
-export const SignUp: React.FC<ISignUp> = ({navigation}) => {
+export const Login: React.FC<ILogin> = ({navigation}) => {
     const [username, setUsername] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
 
@@ -46,14 +39,9 @@ export const SignUp: React.FC<ISignUp> = ({navigation}) => {
                 placeholder="password"
             />
             <Pressable style={styles.button}>
-                <Button title="Sign Up" onPress={() => navigation.navigate(EScreens.MAP)}>
-                    Sign Up
+                <Button title="Login" onPress={() => {navigation.navigate(EScreens.MAP)}}>
+                    Login
                 </Button>
-            </Pressable>
-            <Pressable style={styles.button} onPress={() => navigation.navigate(EScreens.LOGIN)}>
-                <Text style={styles.loginText}>
-                    Already have an account? <Text style={styles.loginLink}>Log in</Text>
-                </Text>
             </Pressable>
         </Layout>
     );
