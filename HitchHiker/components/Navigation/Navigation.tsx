@@ -1,13 +1,13 @@
 import * as React from 'react';
+import { Text } from "react-native";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SignUp } from '../SignUp/SignUp'
 import { Map } from '../Map'
 import { Login } from '../Login/Login'
-import { CarpoolList } from '../CarpoolList'
+import { CarpoolList } from '../CarpoolList/CarpoolList'
 import { JoinOrganisation } from "../../views/JoinOrganisation";
 import { getData } from "../../utils/AsyncStorage";
-import { Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
