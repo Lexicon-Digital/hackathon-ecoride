@@ -8,6 +8,12 @@ interface IAddCarpoolButton {
 
 export const AddCarpoolButton: React.FC<IAddCarpoolButton> = ({openForm}) => {
     const [open, setOpen] = React.useState<boolean>(false);
+
+    const controlDial = () => {
+        setOpen(false);
+        openForm();
+    }
+
     return (
         <SpeedDial
             isOpen={open}
@@ -21,7 +27,7 @@ export const AddCarpoolButton: React.FC<IAddCarpoolButton> = ({openForm}) => {
                 buttonStyle={styles.speedDialFAB}
                 icon={{ name: 'add', color: '#fff' }}
                 title="Add"
-                onPress={openForm}
+                onPress={controlDial}
             />
             <SpeedDial.Action
                 buttonStyle={styles.speedDialFAB}

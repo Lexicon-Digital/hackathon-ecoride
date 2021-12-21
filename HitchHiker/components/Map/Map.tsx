@@ -5,7 +5,7 @@ import Geolocation, {GeoPosition} from 'react-native-geolocation-service';
 import requestAndroidLocationPermissions = MapboxGL.requestAndroidLocationPermissions;
 import {Marker} from "./Marker";
 
-const AccessToken = "";
+const AccessToken = "sk.eyJ1IjoiYnJheWRlbi1sZXhpIiwiYSI6ImNreGZqbWlmbjFkMXIydXB6cjE4N3o3ZGcifQ.GTY8yS8Ck50s58Ln785WuA";
 
 MapboxGL.setAccessToken(AccessToken);
 

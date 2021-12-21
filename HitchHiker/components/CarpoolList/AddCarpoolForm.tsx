@@ -2,7 +2,6 @@ import React from 'react';
 import { Overlay, Button, Icon, Input } from 'react-native-elements';
 import { StyleSheet, Text } from 'react-native';
 import DatePicker from 'react-native-date-picker';
-import { formatInTimeZone } from 'date-fns-tz';
 import { format } from 'date-fns';
 import { ICarpoolTripData } from './CarpoolList';
 
@@ -21,8 +20,7 @@ export const AddCarpoolForm: React.FC<IAddCarpoolForm> = ({isOpen, controlClose,
     };
 
     const newCarpool = () => {
-        console.log()
-        const timezone = format(date, "dd/mm/yyyy h:mm a");
+        const timezone = format(date, "dd/MM/yyyy h:mm a");
         addCarpool({
             description,
             date: timezone,
@@ -42,7 +40,9 @@ export const AddCarpoolForm: React.FC<IAddCarpoolForm> = ({isOpen, controlClose,
                 }}
                 autoCompleteType={undefined}
             />
+            <Text style={styles.textPrimary}>Set EcoRide time:</Text>
             <DatePicker
+                style={styles.datePicker}
                 date={date}
                 onConfirm={(date) => setDate(date)}
             />
@@ -67,6 +67,9 @@ export const AddCarpoolForm: React.FC<IAddCarpoolForm> = ({isOpen, controlClose,
 };
 
 const styles = StyleSheet.create({
+    datePicker: {
+      marginBottom: 30,
+    },
     newRide: {
       backgroundColor: '#069d33'
     },
@@ -74,8 +77,10 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     textPrimary: {
-        marginVertical: 20,
+        marginVertical: 10,
         textAlign: 'center',
+        color: '#000',
+        fontWeight: '600',
         fontSize: 20,
     },
     textSecondary: {
