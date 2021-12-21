@@ -8,7 +8,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react'
 import {
   StatusBar,
   StyleSheet,
@@ -19,6 +19,7 @@ import {
 
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { Navigation } from './components/Navigation/Navigation'
+import { storeData } from './utils/AsyncStorage'
 
 const Section: React.FC<{
   title: string;
@@ -50,6 +51,12 @@ const Section: React.FC<{
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  useEffect(() => {
+      (async() => {
+await          storeData('joinOrganisation', "Lexicon Digital")
+
+      })()
+  }, [])
 
   return (
     <>

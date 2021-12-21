@@ -38,7 +38,7 @@ export const JoinOrganisation: React.VFC<JoinOrganisationProps> = ({ organisatio
 
     return (
         <SafeAreaView style={styles.joinOrg}>
-            <RNEText h1 style={styles.title}>Hitch Hiker</RNEText>
+            <RNEText h1 style={styles.title}>EcoRide</RNEText>
             <Text style={styles.inviteMessage}>You've been invited to join {organisationName}'s organisation!</Text>
             <View>
                 {isLoading && <LinearProgress />}
