@@ -1,4 +1,4 @@
-package com.hitchhiker;
+package au.com.lexicondigital.hackathon.ecoride;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "HitchHiker";
+    return "EcoRide";
   }
 }

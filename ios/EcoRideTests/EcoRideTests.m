@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface HitchHikerTests : XCTestCase
+@interface EcoRideTests : XCTestCase
 
 @end
 
-@implementation HitchHikerTests
+@implementation EcoRideTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

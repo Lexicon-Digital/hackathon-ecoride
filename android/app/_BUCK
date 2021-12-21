@@ -35,12 +35,12 @@ android_library(
 
 android_build_config(
     name = "build_config",
-    package = "com.hitchhiker",
+    package = "au.com.lexicondigital.hackathon.ecoride",
 )
 
 android_resource(
     name = "res",
-    package = "com.hitchhiker",
+    package = "au.com.lexicondigital.hackathon.ecoride",
     res = "src/main/res",
 )
 

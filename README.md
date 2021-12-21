@@ -1,4 +1,4 @@
-# hackathon-hitchhiker
+# Hackathon - EcoRide
 LD Hackathon 2021 - React Native app to create carpooling communities
 
 ## Getting started
