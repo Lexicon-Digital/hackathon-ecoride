@@ -47,7 +47,7 @@ export const Navigation = () => {
                     <Stack.Screen name={EScreens.LOGIN} component={Login} options={{title: 'Login'}} />
                     <Stack.Screen name={EScreens.MAP} component={Map} options={{title: 'Map'}}  />
                     <Stack.Screen name={EScreens.CARPOOL_LIST} component={CarpoolList} options={{title: 'Carpool List'}}  />
-                    <Stack.Screen name={EScreens.JOIN} component={JoinOrganisationWithName}/>
+                    <Stack.Screen name={EScreens.JOIN} component={JoinOrganisationWithName} options={{title: 'Join Organisation'}}/>
                 </Stack.Navigator>
             </NavigationContainer>
         );
