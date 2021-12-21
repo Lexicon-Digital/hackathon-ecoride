@@ -1,0 +1,1 @@
+export { JoinOrganisation } from './JoinOrganisation';
