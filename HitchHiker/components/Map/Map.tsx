@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {StyleSheet, View} from "react-native";
+import {Button, StyleSheet, View} from "react-native";
 import MapboxGL from "@react-native-mapbox-gl/maps";
 import Geolocation, {GeoPosition} from 'react-native-geolocation-service';
 import requestAndroidLocationPermissions = MapboxGL.requestAndroidLocationPermissions;
@@ -21,6 +21,7 @@ type MapProps = {
 
 export const Map: React.VFC<MapProps> = ({ markers }) => {
     const [currentLocation, setCurrentLocation] = useState<GeoPosition>()
+    const [zoomLevel, setZoomLevel] = useState(15)
 
     useEffect(() => {
         (async () => {
@@ -45,10 +46,11 @@ export const Map: React.VFC<MapProps> = ({ markers }) => {
     }, []);
 
     return (
+        <>
         <MapboxGL.MapView style={styles.map}>
             {currentLocation && <MapboxGL.Camera
                 centerCoordinate={[currentLocation.coords.longitude, currentLocation.coords.latitude]}
-                zoomLevel={15}
+                zoomLevel={zoomLevel}
                 animationMode={'flyTo'}
                 animationDuration={1100}
             />}
@@ -57,5 +59,10 @@ export const Map: React.VFC<MapProps> = ({ markers }) => {
                 {markers?.map((position, index) => <Marker key={position.join("-")} position={position} id={`${index}`} />)}
             </View>
         </MapboxGL.MapView>
+        <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-evenly"}}>
+            <Button title={"Zoom in"} onPress={() => setZoomLevel(prev => prev + 1)} />
+            <Button title={"Zoom out"} onPress={() => setZoomLevel(prev => prev - 1)} />
+        </View>
+        </>
     );
 };
