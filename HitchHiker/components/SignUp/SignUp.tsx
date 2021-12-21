@@ -1,16 +1,10 @@
 import React from "react";
-import { Button, Pressable, StyleSheet, Text, TextInput } from 'react-native'
+import { Pressable, StyleSheet, Text } from 'react-native'
 import { Layout } from '../Layout'
 import { EScreens } from '../Navigation/Navigation'
+import { Button, Icon, Input } from 'react-native-elements'
 
 const styles = StyleSheet.create({
-    input: {
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-        width: 300,
-    },
     button: {
         width: 300,
     },
@@ -31,24 +25,39 @@ export const SignUp: React.FC<ISignUp> = ({navigation}) => {
     const [username, setUsername] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
 
+    const isButtonDisabled = (): boolean => !username || !password;
+
     return (
         <Layout>
-            <TextInput
-                style={styles.input}
+            <Input
                 onChangeText={setUsername}
                 value={username}
                 placeholder="username"
+                containerStyle={{
+                    width: 300,
+                }}
+                autoCompleteType={undefined}
             />
-            <TextInput
-                style={styles.input}
+            <Input
                 onChangeText={setPassword}
                 value={password}
                 placeholder="password"
+                containerStyle={{
+                    width: 300,
+                }}
+                autoCompleteType={undefined}
             />
             <Pressable style={styles.button}>
-                <Button title="Sign Up" onPress={() => navigation.navigate(EScreens.MAP)}>
-                    Sign Up
-                </Button>
+                <Button
+                    onPress={() => navigation.navigate(EScreens.MAP)}
+                    title="Sign Up"
+                    disabled={isButtonDisabled()}
+                    buttonStyle={{
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 30,
+                    }}
+                />
             </Pressable>
             <Pressable style={styles.button} onPress={() => navigation.navigate(EScreens.LOGIN)}>
                 <Text style={styles.loginText}>

@@ -1,7 +1,8 @@
 import React from "react";
-import { Button, Pressable, StyleSheet, TextInput } from 'react-native'
+import { StyleSheet, Pressable, Text } from 'react-native'
 import { Layout } from '../Layout'
 import { EScreens } from '../Navigation/Navigation'
+import { Input, Button } from 'react-native-elements'
 
 const styles = StyleSheet.create({
     input: {
@@ -12,7 +13,14 @@ const styles = StyleSheet.create({
         width: 250,
     },
     button: {
-        width: 250,
+        width: 300,
+    },
+    loginLink: {
+        textDecorationLine: "underline",
+    },
+    loginText: {
+        marginTop: 15,
+        textAlign: 'center',
     },
 });
 
@@ -24,24 +32,44 @@ export const Login: React.FC<ILogin> = ({navigation}) => {
     const [username, setUsername] = React.useState<string>("");
     const [password, setPassword] = React.useState<string>("");
 
+    const isButtonDisabled = (): boolean => !username || !password;
+
     return (
         <Layout>
-            <TextInput
-                style={styles.input}
+            <Input
                 onChangeText={setUsername}
                 value={username}
                 placeholder="username"
+                containerStyle={{
+                    width: 300,
+                }}
+                autoCompleteType={undefined}
             />
-            <TextInput
-                style={styles.input}
+            <Input
                 onChangeText={setPassword}
                 value={password}
                 placeholder="password"
+                containerStyle={{
+                    width: 300,
+                }}
+                autoCompleteType={undefined}
             />
             <Pressable style={styles.button}>
-                <Button title="Login" onPress={() => {navigation.navigate(EScreens.MAP)}}>
-                    Login
-                </Button>
+                <Button
+                    onPress={() => navigation.navigate(EScreens.MAP)}
+                    title="Login"
+                    disabled={isButtonDisabled()}
+                    buttonStyle={{
+                        borderColor: 'transparent',
+                        borderWidth: 0,
+                        borderRadius: 30,
+                    }}
+                />
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => navigation.navigate(EScreens.SIGN_UP)}>
+                <Text style={styles.loginText}>
+                   Don't have an account? <Text style={styles.loginLink}>Sign up</Text>
+                </Text>
             </Pressable>
         </Layout>
     );
